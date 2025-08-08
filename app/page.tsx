@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars, Float, Text3D, Environment } from '@react-three/drei'
 import { Button } from '@/components/ui/button'
@@ -84,9 +84,9 @@ function Scene3D() {
       
       <Float speed={1} rotationIntensity={0.5} floatIntensity={1}>
         <Text3D
-          font="/fonts/Geist_Bold.json"
-          size={0.5}
-          height={0.1}
+          font="/fonts/Inter_Bold.json"
+          size={0.6}
+          height={0.15}
           position={[0, 1, 0]}
           rotation={[0, 0, 0]}
         >
@@ -157,7 +157,7 @@ export default function BabyCountdown() {
           {!isSet ? (
             <Card className="backdrop-blur-md bg-white/20 border-white/30 shadow-2xl">
               <CardHeader className="text-center">
-                <CardTitle className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent flex items-center justify-center gap-2">
+                <CardTitle className="text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent flex items-center justify-center gap-2 font-['Inter',_'system-ui',_sans-serif] tracking-tight">
                   <Baby className="text-pink-500" size={40} />
                   Baby Countdown
                   <Heart className="text-red-500" size={40} />
@@ -205,7 +205,7 @@ export default function BabyCountdown() {
           ) : (
             <div className="text-center space-y-8">
               <div className="backdrop-blur-md bg-white/20 rounded-3xl p-8 shadow-2xl border-white/30">
-                <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-4">
+                <h1 className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent mb-4 font-['Inter',_'system-ui',_sans-serif] tracking-tight">
                   {babyName ? `${babyName} is Coming!` : 'Baby is Coming!'}
                 </h1>
                 <p className="text-xl text-gray-700 mb-8">
@@ -214,25 +214,25 @@ export default function BabyCountdown() {
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                   <div className="backdrop-blur-sm bg-white/30 rounded-2xl p-6 border-white/40">
-                    <div className="text-4xl md:text-5xl font-bold text-pink-600 mb-2">
+                    <div className="text-4xl md:text-5xl font-bold text-pink-600 mb-2 font-['JetBrains_Mono',_'Consolas',_monospace] tracking-wider">
                       {timeLeft.days}
                     </div>
                     <div className="text-lg font-semibold text-gray-700">Days</div>
                   </div>
                   <div className="backdrop-blur-sm bg-white/30 rounded-2xl p-6 border-white/40">
-                    <div className="text-4xl md:text-5xl font-bold text-purple-600 mb-2">
+                    <div className="text-4xl md:text-5xl font-bold text-purple-600 mb-2 font-['JetBrains_Mono',_'Consolas',_monospace] tracking-wider">
                       {timeLeft.hours}
                     </div>
                     <div className="text-lg font-semibold text-gray-700">Hours</div>
                   </div>
                   <div className="backdrop-blur-sm bg-white/30 rounded-2xl p-6 border-white/40">
-                    <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2">
+                    <div className="text-4xl md:text-5xl font-bold text-blue-600 mb-2 font-['JetBrains_Mono',_'Consolas',_monospace] tracking-wider">
                       {timeLeft.minutes}
                     </div>
                     <div className="text-lg font-semibold text-gray-700">Minutes</div>
                   </div>
                   <div className="backdrop-blur-sm bg-white/30 rounded-2xl p-6 border-white/40">
-                    <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2">
+                    <div className="text-4xl md:text-5xl font-bold text-green-600 mb-2 font-['JetBrains_Mono',_'Consolas',_monospace] tracking-wider">
                       {timeLeft.seconds}
                     </div>
                     <div className="text-lg font-semibold text-gray-700">Seconds</div>
