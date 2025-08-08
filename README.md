@@ -1,30 +1,62 @@
-# Live Event Countdown App
+# Baby Countdown
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+A delightful Next.js app that lets you set a due date and shows a live countdown with a whimsical 3D background.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/nihar-shahs-projects-60f0b993/v0-live-event-countdown-app)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/pmpMN405y4A)
+## Features
 
-## Overview
+- Beautiful 3D animated background using React Three Fiber and Drei
+- Live countdown (days, hours, minutes, seconds)
+- Optional baby's name in the headline
+- Responsive UI with modern components
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Tech Stack
+
+- Next.js 15, React 19
+- Tailwind CSS
+- @react-three/fiber, @react-three/drei
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and pnpm installed
+
+### Install
+
+```bash
+pnpm install
+```
+
+### Run locally
+
+```bash
+pnpm dev
+```
+
+Open `http://localhost:3000` in your browser.
+
+### Build
+
+```bash
+pnpm build
+pnpm start
+```
+
+## Project Structure
+
+- `app/`: Next.js App Router pages and layout
+- `components/`: UI components
+- `public/`: Static assets
+- `styles/`: Global styles
+- `lib/`: Utilities
 
 ## Deployment
 
-Your project is live at:
+Deploy to any Node-compatible host or static platform that supports Next.js.
 
-**[https://vercel.com/nihar-shahs-projects-60f0b993/v0-live-event-countdown-app](https://vercel.com/nihar-shahs-projects-60f0b993/v0-live-event-countdown-app)**
+- Build with `pnpm build`
+- Serve with `pnpm start` on a Node server, or export and host as needed
 
-## Build your app
+## License
 
-Continue building your app on:
-
-**[https://v0.dev/chat/projects/pmpMN405y4A](https://v0.dev/chat/projects/pmpMN405y4A)**
-
-## How It Works
-
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+MIT
