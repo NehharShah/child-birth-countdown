@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Float, Text3D, Environment } from '@react-three/drei'
+import { OrbitControls, Stars, Float, Environment, Text } from '@react-three/drei'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { Heart, Baby, Sparkles } from 'lucide-react'
-import * as THREE from 'three'
 
 interface TimeLeft {
   days: number
@@ -29,37 +28,22 @@ function FloatingShape({ position, color, scale = 1 }: { position: [number, numb
 }
 
 function ParticleField() {
-  const particlesRef = React.useRef<THREE.Points>(null)
-  
-  const particles = React.useMemo(() => {
-    const temp = []
-    for (let i = 0; i < 100; i++) {
-      temp.push({
-        position: [
-          (Math.random() - 0.5) * 20,
-          (Math.random() - 0.5) * 20,
-          (Math.random() - 0.5) * 20
-        ] as [number, number, number]
-      })
+  const positions = React.useMemo(() => {
+    const count = 100
+    const arr = new Float32Array(count * 3)
+    for (let i = 0; i < count; i++) {
+      arr[i * 3 + 0] = (Math.random() - 0.5) * 20
+      arr[i * 3 + 1] = (Math.random() - 0.5) * 20
+      arr[i * 3 + 2] = (Math.random() - 0.5) * 20
     }
-    return temp
+    return arr
   }, [])
 
-  React.useEffect(() => {
-    if (particlesRef.current) {
-      const positions = new Float32Array(particles.length * 3)
-      particles.forEach((particle, i) => {
-        positions[i * 3] = particle.position[0]
-        positions[i * 3 + 1] = particle.position[1]
-        positions[i * 3 + 2] = particle.position[2]
-      })
-      particlesRef.current.geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
-    }
-  }, [particles])
-
   return (
-    <points ref={particlesRef}>
-      <bufferGeometry />
+    <points>
+      <bufferGeometry>
+        <bufferAttribute attach="attributes-position" args={[positions, 3]} />
+      </bufferGeometry>
       <pointsMaterial color="#ffd700" size={0.05} sizeAttenuation transparent opacity={0.8} />
     </points>
   )
@@ -83,16 +67,16 @@ function Scene3D() {
       <FloatingShape position={[0, -3, -2]} color="#dda0dd" scale={0.9} />
       
       <Float speed={1} rotationIntensity={0.5} floatIntensity={1}>
-        <Text3D
-          font="/fonts/Inter_Bold.json"
-          size={0.6}
-          height={0.15}
+        <Text
           position={[0, 1, 0]}
           rotation={[0, 0, 0]}
+          fontSize={0.6}
+          color="#ff69b4"
+          anchorX="center"
+          anchorY="middle"
         >
-          {'Welcome Baby'}
-          <meshStandardMaterial color="#ff69b4" />
-        </Text3D>
+          Welcome Baby
+        </Text>
       </Float>
     </>
   )
